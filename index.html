@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOT_Exist - Elaborating</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            color: #00ff00; /* Verde acido tipico free party */
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+
+        /* Contenitore principale */
+        .rave-container {
+            text-align: center;
+            letter-spacing: 4px;
+        }
+
+        /* Animazione Glitch Hard Tekno per il testo principale */
+        .title {
+            font-size: 4rem;
+            font-weight: 900;
+            position: relative;
+            animation: strobe 0.15s infinite, glitch 0.4s infinite alternate;
+            text-shadow: 3px 3px 0 #ff0055, -3px -3px 0 #0000ff;
+        }
+
+        /* Nome d'arte sottile sotto */
+        .subtitle {
+            font-size: 1rem;
+            margin-top: 20px;
+            color: #ffffff;
+            opacity: 0.7;
+            animation: pulse 1s infinite steps(2);
+        }
+
+        /* KEYFRAMES ANIMAZIONI */
+        
+        /* Effetto distorsione glitch */
+        @keyframes glitch {
+            0% {
+                transform: skewX(-3deg) scaleY(1);
+                letter-spacing: 4px;
+            }
+            50% {
+                transform: skewX(5deg) scaleY(1.1);
+                color: #ff0055;
+            }
+            100% {
+                transform: skewX(-5deg) scaleY(0.9);
+                letter-spacing: 6px;
+            }
+        }
+
+        /* Effetto Strobo/Flicker rapido */
+        @keyframes strobe {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+            75% { opacity: 0.4; }
+        }
+
+        /* Pulsazione hardcore a scatti per il sottotitolo */
+        @keyframes pulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.9; }
+        }
+
+        /* Linee di disturbo della TV analogica (sfondo underground) */
+        body::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="rave-container">
+        <h1 class="title">Elaborating</h1>
+        <p class="subtitle">NOT_Exist // LIVE SET LOADING</p>
+    </div>
+
+</body>
+</html>
