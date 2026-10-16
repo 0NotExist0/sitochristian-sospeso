@@ -10,7 +10,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
-  
+  <!-- GLOBAL LOADING BAR — Cancella cache e mostra avanzamento caricamento -->
+  <div id="global-loader">
+    <div class="loader-header">
+      <span class="loader-title">Luxury Doors</span>
+      <span class="loader-status" id="loader-status">Pulizia cache...</span>
+    </div>
+    <div class="progress-track">
+      <div id="progress-fill" class="progress-fill"></div>
+    </div>
+    <span class="loader-percent" id="loader-percent">0%</span>
+  </div>
+
   <div id="custom-cursor">
     <div class="cursor-wrapper">
         <svg width="0" height="0" style="position:absolute;">
@@ -147,6 +158,16 @@
       </p>
       <cite class="god-cite">— Fondatore</cite>
     </div>
+
+    <div id="worksLoader" class="divine-loader section-loader">
+      <div class="divine-loader__icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <p class="divine-loader__text">Caricamento Opere</p>
+    </div>
+    <div id="works-container" class="collections__grid"></div>
   </section>
 
   <section class="about" id="about">

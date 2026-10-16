@@ -102,7 +102,7 @@ const DataEngine = {
 // ============================================================
 const CatalogManager = {
     init() {
-        this.grid = document.querySelector(".collections__grid");
+        this.grid = document.getElementById("grid-container");
         this.sectionLoader = document.getElementById("catalogLoader");
 
         if (!this.grid || !window.galleryData) return;
@@ -117,7 +117,7 @@ const CatalogManager = {
     },
 
     buildCards() {
-        CatalogSchema.forEach(rootData => {
+        CatalogSchema.filter(rootData => !EXCLUDED_CATEGORIES.includes(rootData.id)).forEach(rootData => {
             const card = document.createElement("article");
             card.className = "collection-card";
 
@@ -308,7 +308,7 @@ const MenuCatalogoManager = {
         const ul = document.createElement("ul");
         ul.className = "nav__dropdown--cascading dropdown-menu level-1";
 
-        CatalogSchema.forEach(rootData => {
+        CatalogSchema.filter(rootData => !EXCLUDED_CATEGORIES.includes(rootData.id)).forEach(rootData => {
             const li = document.createElement("li");
             li.className = "dropdown-item has-submenu";
             

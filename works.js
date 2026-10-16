@@ -4,6 +4,8 @@
 /**
  * WORKS MANAGER - Versione 3.3 con Divine Section Loader
  */
+const EXCLUDED_CATEGORIES = ["PortaInterne"];
+
 const WorksManager = {
     init() {
         this.container = document.getElementById("works-container");
@@ -44,6 +46,7 @@ const WorksManager = {
     buildWorksCategories(nostriLavoriData) {
         this.container.innerHTML = "";
         Object.entries(nostriLavoriData).forEach(([categoryName, dataNode]) => {
+            if (EXCLUDED_CATEGORIES.includes(categoryName)) return;
             const categoryImages = this.getAllImages(dataNode);
             if (categoryImages.length === 0) return;
 
@@ -81,7 +84,7 @@ const MenuGalleriaManager = {
         dropdown.className = "nav__dropdown";
 
         // Crea dinamicamente le voci basandosi sulle cartelle in "NostriLavori"
-        Object.keys(window.galleryData['NostriLavori']).forEach(catKey => {
+        Object.keys(window.galleryData['NostriLavori']).filter(catKey => !EXCLUDED_CATEGORIES.includes(catKey)).forEach(catKey => {
             const li = document.createElement("li");
             const a = document.createElement("a");
             a.href = "#";

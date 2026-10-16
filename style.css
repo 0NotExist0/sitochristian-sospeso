@@ -2802,3 +2802,80 @@ body.light .wa-field textarea {
     /* Nascosto di default: appare solo al tocco via JS */
     #custom-cursor { opacity: 0; }
 }
+
+/* ============================================================
+   GLOBAL LOADING BAR — Cancella cache e mostra avanzamento
+   ============================================================ */
+#global-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    background: var(--bg-surface, #0a0a0a);
+    color: var(--text-main, #e8e8e8);
+    font-family: var(--ff-display, 'Cormorant Garamond', serif);
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#global-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-header {
+    text-align: center;
+}
+
+.loader-title {
+    font-size: 1.75rem;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    color: var(--gold-glow, #d4af37);
+    margin: 0 0 8px 0;
+    font-weight: 400;
+}
+
+.loader-status {
+    font-size: 0.9rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+    font-family: var(--ff-text, 'Raleway', sans-serif);
+}
+
+.progress-track {
+    width: clamp(260px, 60vw, 520px);
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--gold-glow, #d4af37), #fff5b8);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 18px rgba(212, 175, 55, 0.6);
+}
+
+.loader-percent {
+    font-size: 1.5rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--gold-glow, #d4af37);
+    font-family: var(--ff-text, 'Raleway', sans-serif);
+}
+
+/* Fade out del contenuto durante il caricamento */
+body.loading #works-container,
+body.loading #grid-container {
+    opacity: 0 !important;
+    pointer-events: none;
+}
